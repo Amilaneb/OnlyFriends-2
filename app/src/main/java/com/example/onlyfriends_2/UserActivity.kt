@@ -47,7 +47,7 @@ class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
         isFromLogin: Boolean
     ) {
         if (verifyInformation(email, password, firstName, lastName, isFromLogin)) {
-            listenClick()
+            Toast.makeText(this, getString(R.string.validForm), Toast.LENGTH_LONG).show()
         } else {
             Toast.makeText(this, getString(R.string.invalidForm), Toast.LENGTH_LONG).show()
         }
@@ -67,8 +67,4 @@ class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
         return verified
     }
 
-    private fun listenClick() {
-        val intent = Intent(this,HomeActivity::class.java)
-        startActivity(intent)
-    }
 }
