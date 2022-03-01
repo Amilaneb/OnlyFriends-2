@@ -1,13 +1,11 @@
 package com.example.onlyfriends_2
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import com.example.onlyfriends_2.Authentification.LoginFragment
 import com.example.onlyfriends_2.Authentification.RegisterFragment
 import com.example.onlyfriends_2.databinding.ActivityUserBinding
-import com.example.onlyfriends_2.databinding.ActivityHomeBinding
 
 interface UserActivityFragmentInteraction{
     fun showLogin()
@@ -16,7 +14,7 @@ interface UserActivityFragmentInteraction{
 }
 
 class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
-    lateinit var binding: ActivityUserBinding
+    private lateinit var binding: ActivityUserBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

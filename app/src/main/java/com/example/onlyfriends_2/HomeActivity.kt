@@ -72,6 +72,6 @@ class HomeActivity : AppCompatActivity() {
     }
 
     companion object {
-        private val IMAGE_CHOOSE = 1000;
+        private const val IMAGE_CHOOSE = 1000;
     }
 }
