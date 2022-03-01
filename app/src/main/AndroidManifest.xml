@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.OnlyFriends2">
         <activity
+            android:name=".HomeActivity"
+            android:exported="false" />
+        <activity
+            android:name=".UserActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
