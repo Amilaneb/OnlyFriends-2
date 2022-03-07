@@ -13,8 +13,7 @@ import java.net.URI
 
 
 class EditProfilActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityEditProfilBinding
-    private var uploadedImage: ImageView? = null
+    lateinit var binding: ActivityEditProfilBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityEditProfilBinding.inflate(layoutInflater)
@@ -25,6 +24,7 @@ class EditProfilActivity : AppCompatActivity() {
         listenClickToAccount()
         listenClickPicture()
         }
+    private var uploadedImage: ImageView? =null
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -37,7 +37,7 @@ class EditProfilActivity : AppCompatActivity() {
 
     private fun listenClickToAccount() {
         binding.returnToAccount.setOnClickListener {
-            val intent = Intent(this@EditProfilActivity,HomeActivity::class.java)
+            val intent = Intent(this@EditProfilActivity,HomeActivity::class.java )
             startActivity(intent)
             this.finish()
         }
