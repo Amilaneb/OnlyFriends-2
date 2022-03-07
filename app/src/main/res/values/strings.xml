@@ -30,9 +30,18 @@
     <string name="following">Abonnements</string>
     <string name="subscribe">S\'abonner</string>
 
+    // Edit
+
+    <string name="editPhoto">Changer de photo de profil ?</string>
+    <string name="editUsername">Changer de nom d\'utilisateur ?</string>
+    <string name="editBio">Changer de bio ?</string>
+    <string name="newUsername">Nouveau nom d\'utilisateur</string>
+    <string name="newBio">Nouvelle bio</string>
+
     // Add
 
     <string name="takePicture">Prendre une photo</string>
     <string name="choisePicture">Ajouter une photo</string>
     <string name="logout">Se déconnecter</string>
+    <string name="editProfile">Editer le profil</string>
 </resources>
