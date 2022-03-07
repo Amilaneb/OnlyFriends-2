@@ -15,11 +15,14 @@ import com.example.onlyfriends_2.databinding.FragmentRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding
     private lateinit var auth: FirebaseAuth
+    private lateinit var database: DatabaseReference
     private var interactor: UserActivityFragmentInteraction? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -44,6 +47,11 @@ class RegisterFragment : Fragment() {
         } else {
             Toast.makeText(requireActivity(), "You Didn't signed in", Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun putInRTDB(user: FirebaseUser){
+        database = Firebase.database.reference
+
     }
 
     override fun onAttach(context: Context) {
@@ -77,7 +85,10 @@ class RegisterFragment : Fragment() {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("create", "createUserWithEmail:success")
-                        val user = auth.currentUser
+                        val user: FirebaseUser? = auth.currentUser
+                        if (user != null) {
+                            putInRTDB(user)
+                        }
                         updateUI(user)
                     } else {
                         // If sign in fails, display a message to the user.
