@@ -2,6 +2,7 @@ package com.example.onlyfriends_2
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.example.onlyfriends_2.Authentification.LoginFragment
 import com.example.onlyfriends_2.Authentification.RegisterFragment
@@ -21,7 +22,7 @@ class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
         binding = ActivityUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fragment = RegisterFragment()
+        val fragment = LoginFragment()
         supportFragmentManager.beginTransaction().add(R.id.fragmentContainer, fragment).commit()
     }
 
@@ -64,5 +65,4 @@ class UserActivity : AppCompatActivity(),  UserActivityFragmentInteraction {
         }
         return verified
     }
-
 }

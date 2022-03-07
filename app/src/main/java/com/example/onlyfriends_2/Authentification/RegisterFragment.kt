@@ -40,6 +40,7 @@ class RegisterFragment : Fragment() {
         if (currentUser != null) {
             Toast.makeText(requireActivity(), "You Signed In successfully", Toast.LENGTH_LONG).show()
             startActivity(Intent(requireActivity(), HomeActivity::class.java))
+            activity?.finish()
         } else {
             Toast.makeText(requireActivity(), "You Didn't signed in", Toast.LENGTH_LONG).show()
         }
