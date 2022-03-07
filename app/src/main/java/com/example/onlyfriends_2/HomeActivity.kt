@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
-import com.example.onlyfriends_2.Account.AccountFragment
+import com.example.onlyfriends_2.Authentification.LoginFragment
+import com.example.onlyfriends_2.Authentification.RegisterFragment
+import com.example.onlyfriends_2.Navigation.AccountFragment
 import com.example.onlyfriends_2.Navigation.HomeFragment
 import com.example.onlyfriends_2.Navigation.SearchFragment
 import com.example.onlyfriends_2.databinding.ActivityHomeBinding
