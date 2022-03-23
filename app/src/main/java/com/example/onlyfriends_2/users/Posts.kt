@@ -6,5 +6,4 @@ data class Posts(
     val likes: Int,
     val comments: List<String>,
     val location: String
-) {
-}
+) {}

@@ -12,6 +12,8 @@ import android.widget.Toast
 import com.example.onlyfriends_2.HomeActivity
 import com.example.onlyfriends_2.UserActivityFragmentInteraction
 import com.example.onlyfriends_2.databinding.FragmentRegisterBinding
+import com.example.onlyfriends_2.users.Posts
+import com.example.onlyfriends_2.users.User
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
@@ -49,8 +51,9 @@ class RegisterFragment : Fragment() {
         }
     }
 
-    private fun putInRTDB(user: FirebaseUser){
+    private fun putInRTDB(user: User, id: String){
         database = Firebase.database.reference
+        database.child("users").child(id).setValue(user)
 
     }
 
@@ -73,22 +76,23 @@ class RegisterFragment : Fragment() {
             interactor?.showLogin()
         }
         binding.validateBtn.setOnClickListener{
-            interactor?.makeRequest(
+            /*interactor?.makeRequest(
                 binding.email.text.toString(),
                 binding.password.text.toString(),
-                null,
+                binding.firstName.text.toString(),
                 null,
                 true
-            )
+            )*/
             auth.createUserWithEmailAndPassword(binding.email.text.toString().trim(), binding.password.text.toString().trim())
                 .addOnCompleteListener(requireActivity()) { task ->
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d("create", "createUserWithEmail:success")
                         val user: FirebaseUser? = auth.currentUser
-                        if (user != null) {
-                            putInRTDB(user)
-                        }
+                        val userRT = User(user?.email.toString(), binding.firstName.text.toString(), listOf(
+                            Posts("","", 0, listOf(""), "" )
+                        ))
+                        putInRTDB(userRT, user?.uid.toString())
                         updateUI(user)
                     } else {
                         // If sign in fails, display a message to the user.
