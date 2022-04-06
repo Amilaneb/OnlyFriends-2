@@ -37,7 +37,7 @@ class EditProfilActivity : AppCompatActivity() {
 
     private fun listenClickToAccount() {
         binding.returnToAccount.setOnClickListener {
-            val intent = Intent(this@EditProfilActivity,HomeActivity::class.java )
+            val intent = Intent(this@EditProfilActivity,HomeActivity::class.java)
             startActivity(intent)
             this.finish()
         }

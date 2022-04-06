@@ -1,6 +1,8 @@
-package com.example.onlyfriends_2.Navigation
+package com.example.onlyfriends_2.Account
 
+import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -27,6 +29,15 @@ class AccountFragment : Fragment() {
 
         binding.editBtn.setOnClickListener {
             interactor?.showEditProfil()
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(requestCode == 1000 && resultCode == Activity.RESULT_OK){
+            if(data==null || data.data ==null) return
+            val selectedImage = data.data
+            binding.leftPicture?.setImageURI(selectedImage)
         }
     }
 
