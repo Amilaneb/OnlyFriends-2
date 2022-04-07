@@ -1,6 +1,5 @@
 package com.example.onlyfriends_2.Authentification
 
-import android.app.Fragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
