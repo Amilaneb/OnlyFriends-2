@@ -22,7 +22,7 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
     private lateinit var auth: FirebaseAuth
 
-    var interactor: UserActivityFragmentInteraction? = null
+    private var interactor: UserActivityFragmentInteraction? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +42,8 @@ class LoginFragment : Fragment() {
         if (currentUser != null) {
             Toast.makeText(requireActivity(), "You Signed In successfully", Toast.LENGTH_LONG).show()
             startActivity(Intent(requireActivity(), HomeActivity::class.java))
+            activity?.finish()
+
         } else {
             Toast.makeText(requireActivity(), "You Didn't signed in", Toast.LENGTH_LONG).show()
         }

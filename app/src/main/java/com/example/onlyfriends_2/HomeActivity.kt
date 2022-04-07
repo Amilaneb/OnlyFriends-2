@@ -12,6 +12,8 @@ import com.example.onlyfriends_2.Navigation.AccountFragment
 import com.example.onlyfriends_2.Navigation.HomeFragment
 import com.example.onlyfriends_2.Navigation.SearchFragment
 import com.example.onlyfriends_2.databinding.ActivityHomeBinding
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
 interface EditProfilActivityFragmentInteraction {
     fun showEditProfil()
@@ -36,11 +38,16 @@ class HomeActivity : AppCompatActivity(), EditProfilActivityFragmentInteraction 
             R.id.camera -> {
                 val intent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
                 startActivityForResult(intent, 10)
-                true
                 return true
             }
             R.id.gallery -> {
                 chooseImageGallery()
+                return true
+            }
+            R.id.logOut -> {
+                Firebase.auth.signOut()
+                startActivity(Intent(this, MainActivity::class.java))
+                this.finish()
                 return true
             }
             else -> super.onOptionsItemSelected(item)
@@ -75,6 +82,8 @@ class HomeActivity : AppCompatActivity(), EditProfilActivityFragmentInteraction 
         intent.type = "image/*"
         startActivityForResult(intent, IMAGE_CHOOSE)
     }
+
+
 
     companion object {
         private val BUCKET_URL:String ="gs://onlyfriends-ed070.appspot.com"
