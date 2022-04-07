@@ -1,15 +1,14 @@
 package com.example.onlyfriends_2.Authentification
 
-import android.app.Fragment
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import com.example.onlyfriends_2.HomeActivity
 import com.example.onlyfriends_2.UserActivityFragmentInteraction
 import com.example.onlyfriends_2.databinding.FragmentRegisterBinding
