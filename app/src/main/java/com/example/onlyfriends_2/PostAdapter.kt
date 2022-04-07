@@ -5,12 +5,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.onlyfriends_2.databinding.CellPostBinding
+import com.example.onlyfriends_2.users.Posts
 import com.squareup.picasso.Picasso
 
 
-class PostAdapter (val post: List<String>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class PostAdapter (private val post: List<Posts>) : RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
     class PostViewHolder (binding: CellPostBinding): RecyclerView.ViewHolder(binding.root) {
         val image:ImageView = binding.imgPost
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -20,7 +22,7 @@ class PostAdapter (val post: List<String>) : RecyclerView.Adapter<PostAdapter.Po
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val item = post[position]
-        Picasso.get().load(item).into(holder.image)
+        Picasso.get().load(item.image).into(holder.image)
 
     }
 
